@@ -136,33 +136,33 @@ docker compose up --build
 
 ## Available Tools
 
-| Tool | Description |
-|------|-------------|
-| `flux_generate_image` | Generate images from text prompts with model selection |
-| `flux_edit_image` | Edit existing images with text instructions |
-| `flux_get_task` | Query status of a single generation task |
-| `flux_get_tasks_batch` | Query multiple task statuses at once |
-| `flux_list_models` | List all available Flux models and capabilities |
-| `flux_list_actions` | Show all tools and workflow examples |
+| Tool                   | Description                                            |
+| ---------------------- | ------------------------------------------------------ |
+| `flux_generate_image`  | Generate images from text prompts with model selection |
+| `flux_edit_image`      | Edit existing images with text instructions            |
+| `flux_get_task`        | Query status of a single generation task               |
+| `flux_get_tasks_batch` | Query multiple task statuses at once                   |
+| `flux_list_models`     | List all available Flux models and capabilities        |
+| `flux_list_actions`    | Show all tools and workflow examples                   |
 
 ## Available Prompts
 
-| Prompt | Description |
-|--------|-------------|
-| `flux_image_generation_guide` | Guide for choosing the right tool and model |
-| `flux_prompt_writing_guide` | Best practices for writing effective prompts |
-| `flux_workflow_examples` | Common workflow patterns and examples |
+| Prompt                        | Description                                  |
+| ----------------------------- | -------------------------------------------- |
+| `flux_image_generation_guide` | Guide for choosing the right tool and model  |
+| `flux_prompt_writing_guide`   | Best practices for writing effective prompts |
+| `flux_workflow_examples`      | Common workflow patterns and examples        |
 
 ## Supported Models
 
-| Model | Quality | Speed | Size Format | Best For |
-|-------|---------|-------|-------------|----------|
-| `flux-dev` | Good | Fast | Pixels (256-1440px) | Quick prototyping |
-| `flux-pro` | High | Medium | Pixels (256-1440px) | Production use |
-| `flux-pro-1.1` | High | Medium | Pixels (256-1440px) | Better prompt following |
-| `flux-pro-1.1-ultra` | Highest | Slower | Aspect ratios | Maximum quality |
-| `flux-kontext-pro` | High | Medium | Aspect ratios | Image editing |
-| `flux-kontext-max` | Highest | Slower | Aspect ratios | Complex editing |
+| Model                | Quality | Speed  | Size Format         | Best For                |
+| -------------------- | ------- | ------ | ------------------- | ----------------------- |
+| `flux-dev`           | Good    | Fast   | Pixels (256-1440px) | Quick prototyping       |
+| `flux-pro`           | High    | Medium | Pixels (256-1440px) | Production use          |
+| `flux-pro-1.1`       | High    | Medium | Pixels (256-1440px) | Better prompt following |
+| `flux-pro-1.1-ultra` | Highest | Slower | Aspect ratios       | Maximum quality         |
+| `flux-kontext-pro`   | High    | Medium | Aspect ratios       | Image editing           |
+| `flux-kontext-max`   | Highest | Slower | Aspect ratios       | Complex editing         |
 
 ## Usage Examples
 
@@ -189,13 +189,13 @@ docker compose up --build
 
 ## Environment Variables
 
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `ACEDATACLOUD_API_TOKEN` | Yes (stdio) | — | API token from AceDataCloud |
-| `ACEDATACLOUD_API_BASE_URL` | No | `https://api.acedata.cloud` | API base URL |
-| `FLUX_REQUEST_TIMEOUT` | No | `1800` | Request timeout in seconds |
-| `MCP_SERVER_NAME` | No | `flux` | MCP server name |
-| `LOG_LEVEL` | No | `INFO` | Logging level |
+| Variable                    | Required    | Default                     | Description                 |
+| --------------------------- | ----------- | --------------------------- | --------------------------- |
+| `ACEDATACLOUD_API_TOKEN`    | Yes (stdio) | —                           | API token from AceDataCloud |
+| `ACEDATACLOUD_API_BASE_URL` | No          | `https://api.acedata.cloud` | API base URL                |
+| `FLUX_REQUEST_TIMEOUT`      | No          | `1800`                      | Request timeout in seconds  |
+| `MCP_SERVER_NAME`           | No          | `flux`                      | MCP server name             |
+| `LOG_LEVEL`                 | No          | `INFO`                      | Logging level               |
 
 ## Development
 
