@@ -9,6 +9,8 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for AI
 
 Generate and edit stunning AI images with Flux models (flux-dev, flux-pro, flux-kontext) directly from Claude, Cursor, or any MCP-compatible client.
 
+[![MCPFlux MCP server](https://glama.ai/mcp/servers/AceDataCloud/MCPFlux/badges/card.svg)](https://glama.ai/mcp/servers/AceDataCloud/MCPFlux)
+
 ## Features
 
 - 🎨 **Image Generation** — Generate images from text prompts with 6 Flux models
