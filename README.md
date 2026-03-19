@@ -95,6 +95,27 @@ Add to your Cursor MCP configuration (`.cursor/mcp.json`):
 }
 ```
 
+## JetBrains IDEs
+
+Install the [Flux MCP plugin](https://plugins.jetbrains.com/plugin/com.acedatacloud.mcp.flux) from the JetBrains Marketplace, or configure manually:
+
+1. Go to **Settings → Tools → AI Assistant → Model Context Protocol (MCP)**
+2. Click **Add** and select **HTTP**
+3. Paste this configuration:
+
+```json
+{
+  "mcpServers": {
+    "flux": {
+      "url": "https://flux.mcp.acedata.cloud/mcp",
+      "headers": {
+        "Authorization": "Bearer your_api_token_here"
+      }
+    }
+  }
+}
+```
+
 ## Remote HTTP Mode
 
 For cloud deployment or shared servers:

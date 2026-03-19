@@ -1,0 +1,73 @@
+<idea-plugin>
+    <id>com.acedatacloud.mcp.flux</id>
+    <name>Flux MCP</name>
+    <vendor email="dev@acedata.cloud" url="https://acedata.cloud">Ace Data Cloud</vendor>
+
+    <description><![CDATA[
+<p><b>AI Image Generation</b> with <a href="https://blackforestlabs.ai">Flux</a> via
+<a href="https://modelcontextprotocol.io">Model Context Protocol (MCP)</a>.</p>
+
+<p>This plugin helps you set up the MCP Flux server with JetBrains AI Assistant.
+Once configured, AI Assistant can generate and edit images with flux models
+— all powered by <a href="https://platform.acedata.cloud">Ace Data Cloud</a>.</p>
+
+<h3>Features</h3>
+<ul>
+    <li><b>6 AI Tools</b> — Generate and edit images with Flux models</li>
+    <li><b>Easy Setup</b> — One-click copy MCP configuration for AI Assistant</li>
+    <li><b>Dual Mode</b> — STDIO (local) and HTTP (remote) server support</li>
+    <li><b>Token Management</b> — Store API token securely in IDE settings</li>
+</ul>
+
+<h3>Available Tools</h3>
+<ul>
+    <li><b>Generate</b> — Create images from text prompts</li>
+    <li><b>Edit</b> — Transform existing images</li>
+    <li><b>Fill</b> — Inpaint and outpaint images</li>
+    <li><b>Model Selection</b> — Choose from Flux model variants</li>
+</ul>
+
+<h3>Quick Start</h3>
+<ol>
+    <li>Install this plugin</li>
+    <li>Open <b>Settings → Tools → Flux MCP</b></li>
+    <li>Enter your <a href="https://platform.acedata.cloud">Ace Data Cloud</a> API token</li>
+    <li>Click <b>Copy Config</b> and paste into <b>Settings → Tools → AI Assistant → MCP</b></li>
+</ol>
+
+<p>Requires <a href="https://github.com/astral-sh/uv">uv</a> (Python package runner) for STDIO mode,
+or use HTTP mode for zero-install remote access.</p>
+]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="com.acedatacloud.mcp.flux.McpSettings"/>
+
+        <applicationConfigurable
+            id="com.acedatacloud.mcp.flux.settings"
+            displayName="Flux MCP"
+            parentId="tools"
+            instance="com.acedatacloud.mcp.flux.McpSettingsConfigurable"/>
+
+        <postStartupActivity
+            implementation="com.acedatacloud.mcp.flux.McpStartupActivity"/>
+
+        <notificationGroup id="Flux MCP" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <group id="com.acedatacloud.mcp.flux.Actions" text="Flux MCP" popup="true">
+            <action id="com.acedatacloud.mcp.flux.CopyStdioConfig"
+                class="com.acedatacloud.mcp.flux.CopyStdioConfigAction"
+                text="Copy STDIO Config"
+                description="Copy STDIO MCP configuration for AI Assistant"/>
+            <action id="com.acedatacloud.mcp.flux.CopyHttpConfig"
+                class="com.acedatacloud.mcp.flux.CopyHttpConfigAction"
+                text="Copy HTTP Config"
+                description="Copy HTTP MCP configuration for AI Assistant"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </group>
+    </actions>
+</idea-plugin>
