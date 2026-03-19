@@ -1,0 +1,48 @@
+{
+  "name": "mcp-flux",
+  "displayName": "Flux MCP",
+  "description": "AI Image Generation with Flux - Generate and edit images with Flux models via Ace Data Cloud API",
+  "version": "0.1.0",
+  "publisher": "acedatacloud",
+  "icon": "icon.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "AI",
+    "Chat"
+  ],
+  "keywords": [
+    "mcp",
+    "model context protocol",
+    "ai",
+    "copilot",
+    "ace data cloud",
+    "flux",
+    "image generation",
+    "ai art",
+    "text to image"
+  ],
+  "homepage": "https://github.com/AceDataCloud/MCPFlux",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AceDataCloud/MCPFlux"
+  },
+  "bugs": {
+    "url": "https://github.com/AceDataCloud/MCPFlux/issues"
+  },
+  "contributes": {
+    "mcpServers": {
+      "flux": {
+        "command": "uvx",
+        "args": [
+          "mcp-flux-pro"
+        ],
+        "env": {
+          "ACEDATACLOUD_API_TOKEN": ""
+        }
+      }
+    }
+  }
+}
