@@ -31,6 +31,8 @@ spec:
           env:
             - name: MCP_SERVER_URL
               value: "https://flux.mcp.acedata.cloud"
+            - name: ACEDATACLOUD_OAUTH_CLIENT_ID
+              value: "CTjs55ZXHuG1JzL5EQOBGSr5stRwMQ_wj1bhAYU_mOM"
           resources:
             limits:
               cpu: 500m
