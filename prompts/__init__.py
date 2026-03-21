@@ -55,6 +55,7 @@ When the user wants to generate or edit images, choose the appropriate tool and 
 2. For dev/pro/pro-1.1 models, use pixel dimensions (e.g., "1024x1024")
 3. Image URLs must be direct links to images, not web pages
 4. Default model is flux-dev — suggest higher quality models for important tasks
+5. Flux generation/editing is async in MCP — return the task_id first, then poll with `flux_get_task`
 """
 
 
@@ -117,17 +118,17 @@ def flux_workflow_examples() -> str:
 ## Workflow 1: Quick Image Generation
 1. User: "Create a cyberpunk city"
 2. Call `flux_generate_image(prompt="Cyberpunk metropolis at night, neon signs, rain-slicked streets, towering skyscrapers, cinematic", model="flux-dev")`
-3. Return image_url to user
+3. Poll with `flux_get_task(task_id)` until the final image URLs are available
 
 ## Workflow 2: High Quality Generation
 1. User: "I need a professional product photo"
 2. Call `flux_generate_image(prompt="Elegant perfume bottle on black velvet, studio lighting, reflections, commercial photography, ultra detailed", model="flux-pro-1.1-ultra", size="4:5")`
-3. Return high-quality image
+3. Poll with `flux_get_task(task_id)` for the final image
 
 ## Workflow 3: Image Editing
 1. User provides an image URL and says "Change the background to a beach"
 2. Call `flux_edit_image(prompt="Change the background to a tropical beach with turquoise water and palm trees, keep the subject unchanged", image_url="...", model="flux-kontext-pro")`
-3. Return edited image
+3. Poll with `flux_get_task(task_id)` for the final edited image
 
 ## Workflow 4: Style Transfer
 1. User provides a photo and says "Make it look like a Van Gogh painting"
