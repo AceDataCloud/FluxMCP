@@ -34,7 +34,7 @@ Generate and edit stunning AI images with Flux models (flux-dev, flux-pro, flux-
 
 AceDataCloud hosts a managed MCP server — **no local installation required**.
 
-**Endpoint:** `https://flux.mcp.acedata.cloud/mc`
+**Endpoint:** `https://flux.mcp.acedata.cloud/mcp`
 
 All requests require a Bearer token. Use the API token from Step 1.
 
@@ -43,7 +43,7 @@ All requests require a Bearer token. Use the API token from Step 1.
 Connect directly on [Claude.ai](https://claude.ai) with OAuth — **no API token needed**:
 
 1. Go to Claude.ai **Settings → Integrations → Add More**
-2. Enter the server URL: `https://flux.mcp.acedata.cloud/mc`
+2. Enter the server URL: `https://flux.mcp.acedata.cloud/mcp`
 3. Complete the OAuth login flow
 4. Start using the tools in your conversation
 
@@ -56,7 +56,7 @@ Add to your config (`~/Library/Application Support/Claude/claude_desktop_config.
   "mcpServers": {
     "flux": {
       "type": "streamable-http",
-      "url": "https://flux.mcp.acedata.cloud/mc",
+      "url": "https://flux.mcp.acedata.cloud/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_TOKEN"
       }
@@ -74,7 +74,7 @@ Add to your MCP config (`.cursor/mcp.json` or `.windsurf/mcp.json`):
   "mcpServers": {
     "flux": {
       "type": "streamable-http",
-      "url": "https://flux.mcp.acedata.cloud/mc",
+      "url": "https://flux.mcp.acedata.cloud/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_TOKEN"
       }
@@ -92,7 +92,7 @@ Add to your VS Code MCP config (`.vscode/mcp.json`):
   "servers": {
     "flux": {
       "type": "streamable-http",
-      "url": "https://flux.mcp.acedata.cloud/mc",
+      "url": "https://flux.mcp.acedata.cloud/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_TOKEN"
       }
@@ -113,7 +113,7 @@ Or install the [Ace Data Cloud MCP extension](https://marketplace.visualstudio.c
 {
   "mcpServers": {
     "flux": {
-      "url": "https://flux.mcp.acedata.cloud/mc",
+      "url": "https://flux.mcp.acedata.cloud/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_TOKEN"
       }
@@ -129,7 +129,7 @@ Or install the [Ace Data Cloud MCP extension](https://marketplace.visualstudio.c
 curl https://flux.mcp.acedata.cloud/health
 
 # MCP initialize
-curl -X POST https://flux.mcp.acedata.cloud/mc \
+curl -X POST https://flux.mcp.acedata.cloud/mcp \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -H "Authorization: Bearer YOUR_API_TOKEN" \
@@ -210,7 +210,7 @@ Install the [Flux MCP plugin](https://plugins.jetbrains.com/plugin/com.acedatacl
 {
   "mcpServers": {
     "flux": {
-      "url": "https://flux.mcp.acedata.cloud/mc",
+      "url": "https://flux.mcp.acedata.cloud/mcp",
       "headers": {
         "Authorization": "Bearer your_api_token_here"
       }
@@ -233,7 +233,7 @@ Connect from clients using the HTTP endpoint:
 {
   "mcpServers": {
     "flux": {
-      "url": "https://flux.mcp.acedata.cloud/mc",
+      "url": "https://flux.mcp.acedata.cloud/mcp",
       "headers": {
         "Authorization": "Bearer your_api_token_here"
       }
