@@ -88,7 +88,7 @@ class McpSettingsConfigurable : Configurable {
                     browserLink("API Documentation", "https://docs.acedata.cloud")
                 }
                 row {
-                    browserLink("Source Code", "https://github.com/AceDataCloud/MCPFlux")
+                    browserLink("Source Code", "https://github.com/AceDataCloud/FluxMCP")
                 }
                 row {
                     browserLink("PyPI Package", "https://pypi.org/project/mcp-flux-pro/")
