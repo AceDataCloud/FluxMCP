@@ -3,7 +3,7 @@
 <!-- mcp-name: io.github.AceDataCloud/mcp-flux-pro -->
 
 [![PyPI version](https://badge.fury.io/py/mcp-flux-pro.svg)](https://pypi.org/project/mcp-flux-pro/)
-[![CI](https://github.com/AceDataCloud/MCPFlux/actions/workflows/ci.yaml/badge.svg)](https://github.com/AceDataCloud/MCPFlux/actions/workflows/ci.yaml)
+[![CI](https://github.com/AceDataCloud/FluxMCP/actions/workflows/ci.yaml/badge.svg)](https://github.com/AceDataCloud/FluxMCP/actions/workflows/ci.yaml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
@@ -440,8 +440,8 @@ docker compose up --build
 ### Setup
 
 ```bash
-git clone https://github.com/AceDataCloud/MCPFlux.git
-cd MCPFlux
+git clone https://github.com/AceDataCloud/FluxMCP.git
+cd FluxMCP
 pip install -e ".[all]"
 cp .env.example .env
 # Edit .env with your API token

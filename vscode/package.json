@@ -24,13 +24,13 @@
     "ai art",
     "text to image"
   ],
-  "homepage": "https://github.com/AceDataCloud/MCPFlux",
+  "homepage": "https://github.com/AceDataCloud/FluxMCP",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AceDataCloud/MCPFlux"
+    "url": "https://github.com/AceDataCloud/FluxMCP"
   },
   "bugs": {
-    "url": "https://github.com/AceDataCloud/MCPFlux/issues"
+    "url": "https://github.com/AceDataCloud/FluxMCP/issues"
   },
   "contributes": {
     "mcpServers": {

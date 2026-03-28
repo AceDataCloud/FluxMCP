@@ -58,7 +58,7 @@ Connects to the hosted MCP server at `flux.mcp.acedata.cloud`. No local install 
 - [Ace Data Cloud Platform](https://platform.acedata.cloud)
 - [API Documentation](https://docs.acedata.cloud)
 - [PyPI Package](https://pypi.org/project/mcp-flux-pro/)
-- [Source Code](https://github.com/AceDataCloud/MCPFlux)
+- [Source Code](https://github.com/AceDataCloud/FluxMCP)
 
 ## License
 

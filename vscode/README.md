@@ -40,7 +40,7 @@ You can also manually configure the token in your VS Code settings (`.vscode/mcp
 ## Links
 
 - [PyPI Package](https://pypi.org/project/mcp-flux-pro/)
-- [Source Code](https://github.com/AceDataCloud/MCPFlux)
+- [Source Code](https://github.com/AceDataCloud/FluxMCP)
 - [Ace Data Cloud Platform](https://platform.acedata.cloud)
 - [API Documentation](https://docs.acedata.cloud)
 

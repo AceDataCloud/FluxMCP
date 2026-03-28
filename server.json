@@ -4,7 +4,7 @@
   "description": "MCP server for Flux AI image generation",
   "version": "2026.3.19.7",
   "repository": {
-    "url": "https://github.com/AceDataCloud/MCPFlux",
+    "url": "https://github.com/AceDataCloud/FluxMCP",
     "source": "github"
   },
   "packages": [

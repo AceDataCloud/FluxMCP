@@ -1,4 +1,4 @@
-# Copilot Instructions for MCPFlux
+# Copilot Instructions for FluxMCP
 
 ## Sync from Docs
 

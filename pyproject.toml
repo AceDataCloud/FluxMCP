@@ -70,11 +70,11 @@ all = [
 mcp-flux-pro = "main:main"
 
 [project.urls]
-Homepage = "https://github.com/AceDataCloud/MCPFlux"
+Homepage = "https://github.com/AceDataCloud/FluxMCP"
 Documentation = "https://platform.acedata.cloud"
-Repository = "https://github.com/AceDataCloud/MCPFlux"
-Issues = "https://github.com/AceDataCloud/MCPFlux/issues"
-Changelog = "https://github.com/AceDataCloud/MCPFlux/blob/main/CHANGELOG.md"
+Repository = "https://github.com/AceDataCloud/FluxMCP"
+Issues = "https://github.com/AceDataCloud/FluxMCP/issues"
+Changelog = "https://github.com/AceDataCloud/FluxMCP/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["hatchling>=1.21.0,<1.30.0"]
