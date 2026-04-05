@@ -12,6 +12,7 @@ async def flux_list_models() -> str:
     Returns:
         Detailed list of all Flux models with descriptions and recommendations.
     """
+    # Last updated: 2026-04-05
     return """Available Flux Models:
 
 Image Generation Models:
@@ -76,6 +77,7 @@ async def flux_list_actions() -> str:
     Returns:
         Categorized list of all tools with descriptions.
     """
+    # Last updated: 2026-04-05
     return """Available Flux Tools:
 
 Image Generation:

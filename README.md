@@ -21,6 +21,17 @@ Generate and edit stunning AI images with Flux models (flux-dev, flux-pro, flux-
 - 🐳 **Docker Ready** — Containerized with K8s deployment manifests
 - 🔒 **Secure** — Bearer token auth with per-request isolation in HTTP mode
 
+## Tool Reference
+
+| Tool | Description |
+|------|-------------|
+| `flux_generate_image` | Generate AI images from a text prompt using Flux. |
+| `flux_edit_image` | Edit an existing image using Flux with a text prompt. |
+| `flux_list_models` | List all available Flux models and their capabilities. |
+| `flux_list_actions` | List all available Flux tools and their use cases. |
+| `flux_get_task` | Query the status and result of a Flux image generation task. |
+| `flux_get_tasks_batch` | Query multiple Flux image generation tasks at once. |
+
 ## Quick Start
 
 ### 1. Get Your API Token
