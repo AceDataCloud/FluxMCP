@@ -1,4 +1,4 @@
-# MCP Flux
+# FluxMCP
 
 <!-- mcp-name: io.github.AceDataCloud/mcp-flux-pro -->
 
