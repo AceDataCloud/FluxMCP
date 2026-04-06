@@ -2,9 +2,11 @@
 
 <!-- mcp-name: io.github.AceDataCloud/mcp-flux-pro -->
 
-[![PyPI version](https://badge.fury.io/py/mcp-flux-pro.svg)](https://pypi.org/project/mcp-flux-pro/)
+[![PyPI version](https://img.shields.io/pypi/v/mcp-flux-pro.svg)](https://pypi.org/project/mcp-flux-pro/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/mcp-flux-pro.svg)](https://pypi.org/project/mcp-flux-pro/)
 [![CI](https://github.com/AceDataCloud/FluxMCP/actions/workflows/ci.yaml/badge.svg)](https://github.com/AceDataCloud/FluxMCP/actions/workflows/ci.yaml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![MCP](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for AI image generation and editing using [Flux](https://platform.acedata.cloud) through the [AceDataCloud](https://platform.acedata.cloud) platform.
@@ -13,13 +15,13 @@ Generate and edit stunning AI images with Flux models (flux-dev, flux-pro, flux-
 
 ## Features
 
-- 🎨 **Image Generation** — Generate images from text prompts with 6 Flux models
-- ✏️ **Image Editing** — Edit existing images with context-aware Flux Kontext models
-- 🔄 **Task Management** — Track async generation tasks and batch status queries
-- 📋 **Model Guide** — Built-in model selection and prompt writing guidance
-- 🌐 **Dual Transport** — stdio (local) and HTTP (remote/cloud) modes
-- 🐳 **Docker Ready** — Containerized with K8s deployment manifests
-- 🔒 **Secure** — Bearer token auth with per-request isolation in HTTP mode
+- **Image Generation** - Generate images from text prompts with 6 Flux models
+- **Image Editing** - Edit existing images with context-aware Flux Kontext models
+- **Task Management** - Track async generation tasks and batch status queries
+- **Model Guide** - Built-in model selection and prompt writing guidance
+- **Dual Transport** - stdio (local) and HTTP (remote/cloud) modes
+- **Docker Ready** - Containerized with K8s deployment manifests
+- **Secure** - Bearer token auth with per-request isolation in HTTP mode
 
 ## Tool Reference
 
@@ -112,7 +114,7 @@ Add to your VS Code MCP config (`.vscode/mcp.json`):
 }
 ```
 
-Or install the [Ace Data Cloud MCP extension](https://marketplace.visualstudio.com/items?itemName=acedatacloud.acedatacloud-mcp) for VS Code, which bundles all 11 MCP servers with one-click setup.
+Or install the [Ace Data Cloud MCP extension](https://marketplace.visualstudio.com/items?itemName=acedatacloud.acedatacloud-mcp) for VS Code, which bundles all 15 MCP servers with one-click setup.
 
 #### JetBrains IDEs
 
@@ -304,83 +306,6 @@ docker run -p 8000:8000 ghcr.io/acedatacloud/mcp-flux-pro:latest
 
 Clients connect with their own Bearer token — the server extracts the token from each request's `Authorization` header.
 
-## Cursor Integration
-
-Add to your Cursor MCP configuration (`.cursor/mcp.json`):
-
-```json
-{
-  "mcpServers": {
-    "flux": {
-      "command": "mcp-flux-pro",
-      "env": {
-        "ACEDATACLOUD_API_TOKEN": "your_api_token_here"
-      }
-    }
-  }
-}
-```
-
-## JetBrains IDEs
-
-Install the [Flux MCP plugin](https://plugins.jetbrains.com/plugin/com.acedatacloud.mcp.flux) from the JetBrains Marketplace, or configure manually:
-
-1. Go to **Settings → Tools → AI Assistant → Model Context Protocol (MCP)**
-2. Click **Add** and select **HTTP**
-3. Paste this configuration:
-
-```json
-{
-  "mcpServers": {
-    "flux": {
-      "url": "https://flux.mcp.acedata.cloud/mcp",
-      "headers": {
-        "Authorization": "Bearer your_api_token_here"
-      }
-    }
-  }
-}
-```
-
-## Remote HTTP Mode
-
-For cloud deployment or shared servers:
-
-```bash
-mcp-flux-pro --transport http --port 8000
-```
-
-Connect from clients using the HTTP endpoint:
-
-```json
-{
-  "mcpServers": {
-    "flux": {
-      "url": "https://flux.mcp.acedata.cloud/mcp",
-      "headers": {
-        "Authorization": "Bearer your_api_token_here"
-      }
-    }
-  }
-}
-```
-
-## Docker
-
-```bash
-# Build
-docker build -t mcp-flux .
-
-# Run
-docker run -p 8000:8000 mcp-flux
-```
-
-Or using Docker Compose:
-
-```bash
-docker compose up --build
-```
-
 ## Available Tools
 
 | Tool                   | Description                                            |
@@ -440,8 +365,8 @@ docker compose up --build
 | --------------------------- | ----------- | --------------------------- | --------------------------- |
 | `ACEDATACLOUD_API_TOKEN`    | Yes (stdio) | —                           | API token from AceDataCloud |
 | `ACEDATACLOUD_API_BASE_URL` | No          | `https://api.acedata.cloud` | API base URL                |
-| `ACEDATACLOUD_OAUTH_CLIENT_ID`  | OAuth client ID (hosted mode) | —                           |
-| `ACEDATACLOUD_PLATFORM_BASE_URL` | Platform base URL            | `https://platform.acedata.cloud` |
+| `ACEDATACLOUD_OAUTH_CLIENT_ID`     | No          | —                                  | OAuth client ID (hosted mode)  |
+| `ACEDATACLOUD_PLATFORM_BASE_URL`   | No          | `https://platform.acedata.cloud`   | Platform base URL              |
 | `FLUX_REQUEST_TIMEOUT`      | No          | `1800`                      | Request timeout in seconds  |
 | `MCP_SERVER_NAME`           | No          | `flux`                      | MCP server name             |
 | `LOG_LEVEL`                 | No          | `INFO`                      | Logging level               |
