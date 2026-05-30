@@ -12,10 +12,11 @@ TaskAction = Literal["retrieve", "retrieve_batch"]
 FluxModel = Literal[
     "flux-dev",
     "flux-pro",
-    "flux-pro-1.1",
-    "flux-pro-1.1-ultra",
     "flux-kontext-pro",
     "flux-kontext-max",
+    "flux-2-flex",
+    "flux-2-pro",
+    "flux-2-max",
 ]
 
 # Flux supported aspect ratios (for ultra/kontext models)

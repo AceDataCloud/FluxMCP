@@ -23,11 +23,12 @@ When the user wants to generate or edit images, choose the appropriate tool and 
 
 **Model Selection:**
 - Quick/draft: `flux-dev` (fastest, good quality)
-- Production: `flux-pro-1.1` (better prompt following)
-- Maximum quality: `flux-pro-1.1-ultra` (best quality, use aspect ratios)
+- Production: `flux-pro` (better prompt following)
+- High quality (Flux 2): `flux-2-flex` / `flux-2-pro` (balanced)
+- Maximum quality (Flux 2): `flux-2-max` (best quality)
 
 **Example:** "Create a sunset over mountains"
-→ Call `flux_generate_image` with prompt="Breathtaking sunset over mountain range, golden hour, dramatic clouds, landscape photography", model="flux-pro-1.1-ultra", size="16:9"
+→ Call `flux_generate_image` with prompt="Breathtaking sunset over mountain range, golden hour, dramatic clouds, landscape photography", model="flux-2-max", size="16:9"
 
 ## Image Editing
 **Tool:** `flux_edit_image`
@@ -51,8 +52,8 @@ When the user wants to generate or edit images, choose the appropriate tool and 
 - Monitoring batch operations
 
 ## Important Notes:
-1. For ultra/kontext models, use aspect ratios (e.g., "1:1", "16:9") not pixel dimensions
-2. For dev/pro/pro-1.1 models, use pixel dimensions (e.g., "1024x1024")
+1. For kontext / flux-2 models, use aspect ratios (e.g., "1:1", "16:9") not pixel dimensions
+2. For dev / flux-pro models, use pixel dimensions (e.g., "1024x1024")
 3. Image URLs must be direct links to images, not web pages
 4. Default model is flux-dev — suggest higher quality models for important tasks
 5. Flux generation/editing is async in MCP — return the task_id first, then poll with `flux_get_task`
@@ -104,8 +105,8 @@ A good prompt includes these elements in order:
 
 ## Model-Specific Tips:
 - **flux-dev**: Good with simple, direct prompts
-- **flux-pro-1.1**: Follows complex prompts more accurately
-- **flux-pro-1.1-ultra**: Best with detailed, descriptive prompts
+- **flux-pro**: Follows complex prompts more accurately
+- **flux-2-flex / flux-2-pro / flux-2-max**: Best with detailed, descriptive prompts; flux-2-max gives the highest fidelity
 - **flux-kontext-pro/max**: Describe edits relative to the source image
 """
 
@@ -122,7 +123,7 @@ def flux_workflow_examples() -> str:
 
 ## Workflow 2: High Quality Generation
 1. User: "I need a professional product photo"
-2. Call `flux_generate_image(prompt="Elegant perfume bottle on black velvet, studio lighting, reflections, commercial photography, ultra detailed", model="flux-pro-1.1-ultra", size="4:5")`
+2. Call `flux_generate_image(prompt="Elegant perfume bottle on black velvet, studio lighting, reflections, commercial photography, ultra detailed", model="flux-2-max", size="4:5")`
 3. Poll with `flux_get_task(task_id)` for the final image
 
 ## Workflow 3: Image Editing

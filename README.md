@@ -327,14 +327,15 @@ Clients connect with their own Bearer token — the server extracts the token fr
 
 ## Supported Models
 
-| Model                | Quality | Speed  | Size Format         | Best For                |
-| -------------------- | ------- | ------ | ------------------- | ----------------------- |
-| `flux-dev`           | Good    | Fast   | Pixels (256-1440px) | Quick prototyping       |
-| `flux-pro`           | High    | Medium | Pixels (256-1440px) | Production use          |
-| `flux-pro-1.1`       | High    | Medium | Pixels (256-1440px) | Better prompt following |
-| `flux-pro-1.1-ultra` | Highest | Slower | Aspect ratios       | Maximum quality         |
-| `flux-kontext-pro`   | High    | Medium | Aspect ratios       | Image editing           |
-| `flux-kontext-max`   | Highest | Slower | Aspect ratios       | Complex editing         |
+| Model              | Quality | Speed  | Size Format         | Best For                |
+| ------------------ | ------- | ------ | ------------------- | ----------------------- |
+| `flux-dev`         | Good    | Fast   | Pixels (256-1440px) | Quick prototyping       |
+| `flux-pro`         | High    | Medium | Pixels (256-1440px) | Production use          |
+| `flux-kontext-pro` | High    | Medium | Aspect ratios       | Image editing           |
+| `flux-kontext-max` | Highest | Slower | Aspect ratios       | Complex editing         |
+| `flux-2-flex`      | High    | Fast   | Aspect ratios       | Flux 2 balanced quality |
+| `flux-2-pro`       | Higher  | Medium | Aspect ratios       | Flux 2 production       |
+| `flux-2-max`       | Highest | Slower | Aspect ratios       | Flux 2 maximum quality  |
 
 ## Usage Examples
 
@@ -342,7 +343,7 @@ Clients connect with their own Bearer token — the server extracts the token fr
 
 ```
 "Generate a photorealistic mountain landscape at golden hour"
-→ flux_generate_image(prompt="...", model="flux-pro-1.1-ultra", size="16:9")
+→ flux_generate_image(prompt="...", model="flux-2-max", size="16:9")
 ```
 
 ### Edit an Image
