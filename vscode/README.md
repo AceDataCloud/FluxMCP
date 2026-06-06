@@ -2,7 +2,7 @@
 
 Flux image generation by Black Forest Labs — dev, pro, ultra, and kontext editing.
 
-[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/acedatacloud.mcp-flux-pro?label=VS%20Code)](https://marketplace.visualstudio.com/items?itemName=acedatacloud.mcp-flux-pro) [![PyPI](https://img.shields.io/pypi/v/mcp-flux-pro.svg?label=PyPI)](https://pypi.org/project/mcp-flux-pro/) [![Hosted MCP](https://img.shields.io/badge/hosted-mcp-blue)](https://flux.mcp.acedata.cloud/mcp)
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/acedatacloud.mcp-flux?label=VS%20Code)](https://marketplace.visualstudio.com/items?itemName=acedatacloud.mcp-flux) [![PyPI](https://img.shields.io/pypi/v/mcp-flux-pro.svg?label=PyPI)](https://pypi.org/project/mcp-flux-pro/) [![Hosted MCP](https://img.shields.io/badge/hosted-mcp-blue)](https://flux.mcp.acedata.cloud/mcp)
 
 Generate high-fidelity images with Flux from VS Code chat, or edit existing images via natural-language instructions using Flux Kontext.
 
@@ -25,6 +25,13 @@ You can rotate or remove the API key any time from the command palette:
 
 > The default config talks to the **hosted streamable-HTTP endpoint** at
 > `https://flux.mcp.acedata.cloud/mcp` — no Python, no `uvx`, no local install needed.
+
+## VS Code Setup Guide
+
+For screenshots, token setup, project-level and user-level `mcp.json`, and Copilot Agent Mode examples, see:
+
+- [Flux MCP VS Code guide](https://platform.acedata.cloud/documents/promotion_article_mcp_flux_vscode)
+- [All Ace Data Cloud MCP servers in VS Code](https://platform.acedata.cloud/documents/promotion_article_mcp_all_vscode)
 
 ### Example prompts
 
@@ -89,7 +96,7 @@ this extension.
     {
       "type": "promptString",
       "id": "acedatacloud_api_token",
-    "description": "Ace Data Cloud API key",
+      "description": "Ace Data Cloud API key",
       "password": true
     }
   ]
