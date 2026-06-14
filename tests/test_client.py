@@ -7,7 +7,7 @@ def test_with_async_callback_injects_default_callback() -> None:
     """Long-running Flux operations should default to async submission."""
     client = FluxClient(api_token="test-token", base_url="https://api.test.com")
     payload = client._with_async_callback({"action": "generate"})
-    assert payload["callback_url"] == "https://api.acedata.cloud/health"
+    assert payload["async"] is True
 
 
 def test_with_async_callback_preserves_explicit_callback() -> None:
