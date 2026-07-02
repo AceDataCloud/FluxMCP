@@ -2,7 +2,7 @@
 
 Flux image generation by Black Forest Labs — dev, pro, ultra, and kontext editing.
 
-[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/acedatacloud.mcp-flux?label=VS%20Code)](https://marketplace.visualstudio.com/items?itemName=acedatacloud.mcp-flux) [![PyPI](https://img.shields.io/pypi/v/mcp-flux-pro.svg?label=PyPI)](https://pypi.org/project/mcp-flux-pro/) [![Hosted MCP](https://img.shields.io/badge/hosted-mcp-blue)](https://flux.mcp.acedata.cloud/mcp)
+[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Marketplace-blue?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=acedatacloud.mcp-flux) [![PyPI](https://img.shields.io/pypi/v/mcp-flux-pro.svg?label=PyPI)](https://pypi.org/project/mcp-flux-pro/) [![Hosted MCP](https://img.shields.io/badge/hosted-mcp-blue)](https://flux.mcp.acedata.cloud/mcp)
 
 Generate high-fidelity images with Flux from VS Code chat, or edit existing images via natural-language instructions using Flux Kontext.
 
