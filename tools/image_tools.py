@@ -27,8 +27,9 @@ async def flux_generate_image(
             description="Flux model to use for generation. Options:\n"
             "- flux-dev: Fast development model, good balance of speed and quality (default)\n"
             "- flux-pro: Higher quality production model\n"
-            "- flux-pro-1.1: Improved production model with better prompt following\n"
-            "- flux-pro-1.1-ultra: Highest quality, supports aspect ratios instead of pixel sizes\n"
+            "- flux-2-flex: Flux 2 flexible model, pixel sizes (x >= 64, multiple of 32)\n"
+            "- flux-2-pro: Flux 2 professional model, high quality\n"
+            "- flux-2-max: Flux 2 maximum-quality model\n"
             "- flux-kontext-pro: Context-aware model for editing and style transfer\n"
             "- flux-kontext-max: Maximum context model for complex editing tasks"
         ),
@@ -36,10 +37,10 @@ async def flux_generate_image(
     size: Annotated[
         str | None,
         Field(
-            description="Image size. For flux-dev/pro/pro-1.1: pixel dimensions like '1024x1024' "
-            "(256-1440px, multiples of 32). For flux-pro-1.1-ultra and kontext models: aspect "
-            "ratios like '1:1', '16:9', '9:16', '4:3', '3:2', '2:3', '4:5', '5:4', '3:4', "
-            "'21:9', '9:21'. Default varies by model."
+            description="Image size. For flux-dev: pixel dimensions like '1024x1024' "
+            "(256-1440px, multiples of 32). For flux-2-flex/pro/max: pixel dimensions "
+            "(x >= 64, multiples of 32). For kontext models: image ratios like '1:1', '16:9', "
+            "'9:16', '4:3', '3:2', '2:3', '4:5', '5:4', '3:4', '21:9', '9:21'. Default varies by model."
         ),
     ] = None,
     count: Annotated[

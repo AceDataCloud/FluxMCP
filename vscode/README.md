@@ -55,7 +55,7 @@ For screenshots, token setup, project-level and user-level `mcp.json`, and Copil
 
 ## Supported Models
 
-`flux-dev`, `flux-pro`, `flux-pro-1.1`, `flux-pro-1.1-ultra`, `flux-kontext-pro`, `flux-kontext-max`
+`flux-dev`, `flux-pro`, `flux-2-flex`, `flux-2-pro`, `flux-2-max`, `flux-kontext-pro`, `flux-kontext-max`
 
 ## Pricing
 
