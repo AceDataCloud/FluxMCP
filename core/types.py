@@ -17,6 +17,7 @@ FluxModel = Literal[
     "flux-2-flex",
     "flux-2-pro",
     "flux-2-max",
+    "flux-2-klein",
 ]
 
 # Flux supported aspect ratios (for ultra/kontext models)

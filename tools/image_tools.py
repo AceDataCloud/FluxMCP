@@ -30,6 +30,7 @@ async def flux_generate_image(
             "- flux-2-flex: Flux 2 flexible model, pixel sizes (x >= 64, multiple of 32)\n"
             "- flux-2-pro: Flux 2 professional model, high quality\n"
             "- flux-2-max: Flux 2 maximum-quality model\n"
+            "- flux-2-klein: Flux 2 klein model, efficient generation\n"
             "- flux-kontext-pro: Context-aware model for editing and style transfer\n"
             "- flux-kontext-max: Maximum context model for complex editing tasks"
         ),
