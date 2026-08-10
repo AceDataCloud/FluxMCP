@@ -1,6 +1,7 @@
 """Task query tools for Flux API."""
 
 import asyncio
+import json
 from typing import Annotated
 
 from pydantic import Field
@@ -72,29 +73,4 @@ async def flux_get_tasks_batch(
         action="retrieve_batch",
     )
 
-    if "error" in result:
-        error = result.get("error", {})
-        return f"Error: {error.get('code', 'unknown')} - {error.get('message', 'Unknown error')}"
-
-    lines = [f"Total Tasks: {result.get('count', 0)}", ""]
-
-    for item in result.get("items", []):
-        response_info = item.get("response", {})
-        lines.extend(
-            [
-                f"=== Task: {item.get('id', 'N/A')} ===",
-                f"Type: {item.get('type', 'N/A')}",
-                f"Created At: {item.get('created_at', 'N/A')}",
-                f"Success: {response_info.get('success', False)}",
-            ]
-        )
-
-        data = response_info.get("data", [])
-        if isinstance(data, list):
-            for img in data:
-                if "image_url" in img:
-                    lines.append(f"  Image: {img.get('image_url', 'N/A')}")
-
-        lines.append("")
-
-    return "\n".join(lines)
+    return json.dumps(result, ensure_ascii=False, indent=2)
