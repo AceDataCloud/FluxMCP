@@ -38,6 +38,10 @@ Image Generation Models:
   Speed: Slower  |  Quality: Highest  |  Size: pixel dims (x >= 64, multiples of 32)
   Best for: Maximum-quality Flux 2 output, final renders
 
+- flux-2-klein
+  Speed: Fast  |  Quality: Good  |  Size: pixel dims (x >= 64, multiples of 32)
+  Best for: Efficient Flux 2 generation with lower latency
+
 Context-Aware Models (Best for Editing):
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 - flux-kontext-pro
@@ -85,7 +89,7 @@ async def flux_list_actions() -> str:
 
 Image Generation:
 - flux_generate_image: Generate images from text prompts
-  Supports 6 models with different quality/speed tradeoffs.
+  Supports 8 models with different quality/speed tradeoffs.
 
 Image Editing:
 - flux_edit_image: Edit existing images with text instructions

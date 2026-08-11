@@ -67,6 +67,7 @@ class TestInfoTools:
 
         assert "flux-dev" in result
         assert "flux-pro" in result
+        assert "flux-2-klein" in result
 
     @pytest.mark.asyncio
     async def test_list_actions(self) -> None:
@@ -80,6 +81,7 @@ class TestInfoTools:
 
         assert "flux_generate_image" in result
         assert "flux_get_task" in result
+        assert "Supports 8 models" in result
 
 
 class TestTaskTools:
