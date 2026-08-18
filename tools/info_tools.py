@@ -106,16 +106,16 @@ Information:
 Workflows:
 ━━━━━━━━━━
 1. Quick Generation:
-   flux_generate_image(prompt="...") → get image_url
+   flux_generate_image(prompt="...", size="1024x1024") → get image_url
 
 2. High Quality Generation:
    flux_generate_image(prompt="...", model="flux-2-max", size="1024x1024")
 
 3. Image Editing:
-   flux_edit_image(prompt="Change the sky to sunset", image_url="https://...")
+   flux_edit_image(prompt="Change the sky to sunset", image_url="https://...", size="1:1")
 
 4. Async Generation:
-   flux_generate_image(prompt="...", callback_url="https://...") → get task_id
+   flux_generate_image(prompt="...", size="1024x1024", callback_url="https://...") → get task_id
    flux_get_task(task_id) → check status later
 
 5. Batch Monitoring:

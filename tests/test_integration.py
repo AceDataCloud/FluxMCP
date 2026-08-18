@@ -44,6 +44,7 @@ class TestImageTools:
         result = await flux_generate_image(
             prompt="A simple red circle on a white background, minimalist",
             model="flux-dev",
+            size="1024x1024",
         )
 
         print("\n=== Generate Image Result ===")
@@ -98,6 +99,7 @@ class TestTaskTools:
         gen_result = await flux_generate_image(
             prompt="A simple blue square, minimal",
             model="flux-dev",
+            size="1024x1024",
         )
 
         print("\n=== Generate Result ===")

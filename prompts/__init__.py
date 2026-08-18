@@ -26,6 +26,7 @@ When the user wants to generate or edit images, choose the appropriate tool and 
 - Production: `flux-pro` (better prompt following)
 - High quality (Flux 2): `flux-2-flex` / `flux-2-pro` (balanced)
 - Maximum quality (Flux 2): `flux-2-max` (best quality)
+- Efficient (Flux 2): `flux-2-klein` (lower latency)
 
 **Example:** "Create a sunset over mountains"
 → Call `flux_generate_image` with prompt="Breathtaking sunset over mountain range, golden hour, dramatic clouds, landscape photography", model="flux-2-max", size="16:9"
@@ -42,7 +43,7 @@ When the user wants to generate or edit images, choose the appropriate tool and 
 - Complex editing: `flux-kontext-max` (for demanding transformations)
 
 **Example:** "Add sunglasses to this person"
-→ Call `flux_edit_image` with prompt="Add stylish sunglasses to the person", image_url="...", model="flux-kontext-pro"
+→ Call `flux_edit_image` with prompt="Add stylish sunglasses to the person", image_url="...", size="1:1", model="flux-kontext-pro"
 
 ## Task Checking
 **Tool:** `flux_get_task` / `flux_get_tasks_batch`
@@ -52,11 +53,12 @@ When the user wants to generate or edit images, choose the appropriate tool and 
 - Monitoring batch operations
 
 ## Important Notes:
-1. For kontext / flux-2 models, use aspect ratios (e.g., "1:1", "16:9") not pixel dimensions
-2. For dev / flux-pro models, use pixel dimensions (e.g., "1024x1024")
-3. Image URLs must be direct links to images, not web pages
-4. Default model is flux-dev — suggest higher quality models for important tasks
-5. Flux generation/editing is async in MCP — return the task_id first, then poll with `flux_get_task`
+1. Always provide the required `size` parameter for generation and editing
+2. For kontext / flux-2 models, use aspect ratios (e.g., "1:1", "16:9") not pixel dimensions
+3. For dev / flux-pro models, use pixel dimensions (e.g., "1024x1024")
+4. Image URLs must be direct links to images, not web pages
+5. Default model is flux-dev — suggest higher quality models for important tasks
+6. Flux generation/editing is async in MCP — return the task_id first, then poll with `flux_get_task`
 """
 
 
@@ -106,7 +108,7 @@ A good prompt includes these elements in order:
 ## Model-Specific Tips:
 - **flux-dev**: Good with simple, direct prompts
 - **flux-pro**: Follows complex prompts more accurately
-- **flux-2-flex / flux-2-pro / flux-2-max**: Best with detailed, descriptive prompts; flux-2-max gives the highest fidelity
+- **flux-2-flex / flux-2-pro / flux-2-max / flux-2-klein**: Best with detailed, descriptive prompts; flux-2-max gives the highest fidelity
 - **flux-kontext-pro/max**: Describe edits relative to the source image
 """
 
@@ -118,7 +120,7 @@ def flux_workflow_examples() -> str:
 
 ## Workflow 1: Quick Image Generation
 1. User: "Create a cyberpunk city"
-2. Call `flux_generate_image(prompt="Cyberpunk metropolis at night, neon signs, rain-slicked streets, towering skyscrapers, cinematic", model="flux-dev")`
+2. Call `flux_generate_image(prompt="Cyberpunk metropolis at night, neon signs, rain-slicked streets, towering skyscrapers, cinematic", size="1024x1024", model="flux-dev")`
 3. Poll with `flux_get_task(task_id)` until the final image URLs are available
 
 ## Workflow 2: High Quality Generation
@@ -128,21 +130,21 @@ def flux_workflow_examples() -> str:
 
 ## Workflow 3: Image Editing
 1. User provides an image URL and says "Change the background to a beach"
-2. Call `flux_edit_image(prompt="Change the background to a tropical beach with turquoise water and palm trees, keep the subject unchanged", image_url="...", model="flux-kontext-pro")`
+2. Call `flux_edit_image(prompt="Change the background to a tropical beach with turquoise water and palm trees, keep the subject unchanged", image_url="...", size="1:1", model="flux-kontext-pro")`
 3. Poll with `flux_get_task(task_id)` for the final edited image
 
 ## Workflow 4: Style Transfer
 1. User provides a photo and says "Make it look like a Van Gogh painting"
-2. Call `flux_edit_image(prompt="Transform into Van Gogh oil painting style with swirling brushstrokes and vibrant colors", image_url="...", model="flux-kontext-max")`
+2. Call `flux_edit_image(prompt="Transform into Van Gogh oil painting style with swirling brushstrokes and vibrant colors", image_url="...", size="1:1", model="flux-kontext-max")`
 3. Return stylized image
 
 ## Workflow 5: Multiple Images
 1. User wants several variations
-2. Call `flux_generate_image(prompt="...", count=4, model="flux-dev")` for quick variations
+2. Call `flux_generate_image(prompt="...", size="1024x1024", count=4, model="flux-dev")` for quick variations
 3. Return all generated images
 
 ## Workflow 6: Async Generation with Polling
-1. Generate: `flux_generate_image(prompt="...")` → get task_id
+1. Generate: `flux_generate_image(prompt="...", size="1024x1024")` → get task_id
 2. If generation hasn't completed, poll: `flux_get_task(task_id)`
 3. Return result when ready
 

@@ -336,6 +336,7 @@ Clients connect with their own Bearer token — the server extracts the token fr
 | `flux-2-flex`      | High    | Fast   | Aspect ratios       | Flux 2 balanced quality |
 | `flux-2-pro`       | Higher  | Medium | Aspect ratios       | Flux 2 production       |
 | `flux-2-max`       | Highest | Slower | Aspect ratios       | Flux 2 maximum quality  |
+| `flux-2-klein`     | Good    | Fast   | Aspect ratios       | Flux 2 efficient output |
 
 ## Usage Examples
 
@@ -350,7 +351,7 @@ Clients connect with their own Bearer token — the server extracts the token fr
 
 ```
 "Add sunglasses to the person in this photo"
-→ flux_edit_image(prompt="Add sunglasses", image_url="https://...", model="flux-kontext-pro")
+→ flux_edit_image(prompt="Add sunglasses", image_url="https://...", size="1:1", model="flux-kontext-pro")
 ```
 
 ### Check Task Status

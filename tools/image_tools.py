@@ -21,6 +21,15 @@ async def flux_generate_image(
             "'Minimalist logo design of a phoenix, vector art style'"
         ),
     ],
+    size: Annotated[
+        str,
+        Field(
+            description="Required image size. For flux-dev: pixel dimensions like '1024x1024' "
+            "(256-1440px, multiples of 32). For flux-2-flex/pro/max: pixel dimensions "
+            "(x >= 64, multiples of 32). For kontext models: image ratios like '1:1', '16:9', "
+            "'9:16', '4:3', '3:2', '2:3', '4:5', '5:4', '3:4', '21:9', '9:21'."
+        ),
+    ],
     model: Annotated[
         FluxModel,
         Field(
@@ -35,15 +44,6 @@ async def flux_generate_image(
             "- flux-kontext-max: Maximum context model for complex editing tasks"
         ),
     ] = DEFAULT_MODEL,
-    size: Annotated[
-        str | None,
-        Field(
-            description="Image size. For flux-dev: pixel dimensions like '1024x1024' "
-            "(256-1440px, multiples of 32). For flux-2-flex/pro/max: pixel dimensions "
-            "(x >= 64, multiples of 32). For kontext models: image ratios like '1:1', '16:9', "
-            "'9:16', '4:3', '3:2', '2:3', '4:5', '5:4', '3:4', '21:9', '9:21'. Default varies by model."
-        ),
-    ] = None,
     count: Annotated[
         int | None,
         Field(
@@ -78,10 +78,9 @@ async def flux_generate_image(
         "action": "generate",
         "prompt": prompt,
         "model": model,
+        "size": size,
     }
 
-    if size:
-        payload["size"] = size
     if count is not None:
         payload["count"] = count
     if callback_url:
@@ -109,6 +108,13 @@ async def flux_edit_image(
             "not a web page containing an image."
         ),
     ],
+    size: Annotated[
+        str,
+        Field(
+            description="Required output image size. For kontext models: aspect ratios like '1:1', "
+            "'16:9'. For other models: pixel dimensions like '1024x1024'."
+        ),
+    ],
     model: Annotated[
         FluxModel,
         Field(
@@ -119,13 +125,6 @@ async def flux_edit_image(
             "Other models also support editing but kontext models give best results."
         ),
     ] = "flux-kontext-pro",
-    size: Annotated[
-        str | None,
-        Field(
-            description="Output image size. For kontext models: aspect ratios like '1:1', '16:9'. "
-            "For other models: pixel dimensions like '1024x1024'."
-        ),
-    ] = None,
     callback_url: Annotated[
         str | None,
         Field(description="Webhook callback URL for asynchronous notifications."),
@@ -153,10 +152,9 @@ async def flux_edit_image(
         "prompt": prompt,
         "image_url": image_url,
         "model": model,
+        "size": size,
     }
 
-    if size:
-        payload["size"] = size
     if callback_url:
         payload["callback_url"] = callback_url
 
