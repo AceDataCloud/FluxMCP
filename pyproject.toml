@@ -71,7 +71,7 @@ mcp-flux-pro = "main:main"
 
 [project.urls]
 Homepage = "https://github.com/AceDataCloud/FluxMCP"
-Documentation = "https://platform.acedata.cloud"
+Documentation = "https://platform.acedata.cloud/documents/flux-mcp"
 Repository = "https://github.com/AceDataCloud/FluxMCP"
 Issues = "https://github.com/AceDataCloud/FluxMCP/issues"
 Changelog = "https://github.com/AceDataCloud/FluxMCP/blob/main/CHANGELOG.md"

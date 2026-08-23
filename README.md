@@ -421,6 +421,11 @@ This MCP server uses the [AceDataCloud Flux API](https://platform.acedata.cloud)
 
 Full API documentation: [platform.acedata.cloud](https://platform.acedata.cloud)
 
+## Documentation
+
+<!-- canonical-documentation -->
+[Documentation](https://platform.acedata.cloud/documents/flux-mcp)
+
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
