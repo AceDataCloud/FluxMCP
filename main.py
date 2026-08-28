@@ -18,6 +18,7 @@ load_dotenv()
 
 from core.config import settings
 from core.server import mcp
+from core.server_card import registered_tool_cards
 
 # Configure logging
 logging.basicConfig(
@@ -157,17 +158,7 @@ Environment Variables:
                     {
                         "serverInfo": {"name": "MCP Flux"},
                         "authentication": {"required": True, "schemes": ["bearer"]},
-                        "tools": [
-                            {
-                                "name": "flux_generate_image",
-                                "description": "Generate image from text",
-                            },
-                            {"name": "flux_edit_image", "description": "Edit an existing image"},
-                            {"name": "flux_get_task", "description": "Query task status"},
-                            {"name": "flux_get_tasks_batch", "description": "Query multiple tasks"},
-                            {"name": "flux_list_models", "description": "List available models"},
-                            {"name": "flux_list_actions", "description": "List available actions"},
-                        ],
+                        "tools": registered_tool_cards(mcp),
                         "prompts": [
                             {
                                 "name": "flux_image_generation_guide",
