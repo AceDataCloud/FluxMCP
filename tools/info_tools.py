@@ -95,6 +95,12 @@ Image Editing:
 - flux_edit_image: Edit existing images with text instructions
   Best with flux-kontext-pro or flux-kontext-max models.
 
+Video Generation and Utilities:
+- flux_generate_video: FLUX 3 text/image/video generation and temporary owned draft enhancement
+- flux_edit_video: Edit a video with a prompt
+- flux_upscale_video: Upscale a video using actual output MP-seconds and FPS for billing
+  Video tools return a platform task ID asynchronously by default.
+
 Task Management:
 - flux_get_task: Check status of a single generation task
 - flux_get_tasks_batch: Check status of multiple tasks at once

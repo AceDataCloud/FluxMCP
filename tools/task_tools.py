@@ -17,14 +17,14 @@ async def flux_get_task(
         str,
         Field(
             description="The task ID returned from a generation or edit request. This is the "
-            "'task_id' field from any flux_generate_image or flux_edit_image tool response."
+            "'task_id' field from any flux_generate_image, flux_edit_image or a FLUX video tool response."
         ),
     ],
 ) -> str:
-    """Query the status and result of a Flux image generation task.
+    """Query the status and result of a Flux image or video generation task.
 
     Use this to check if a generation is complete and retrieve the resulting
-    image URLs and metadata.
+    image/video URLs and metadata.
 
     Use this when:
     - You want to check if an image generation has completed
@@ -61,7 +61,7 @@ async def flux_get_tasks_batch(
         Field(description="List of task IDs to query. Maximum recommended batch size is 50 tasks."),
     ],
 ) -> str:
-    """Query multiple Flux image generation tasks at once.
+    """Query multiple Flux image or video generation tasks at once.
 
     Efficiently check the status of multiple tasks in a single request.
     More efficient than calling flux_get_task multiple times.

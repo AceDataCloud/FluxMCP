@@ -436,3 +436,11 @@ MIT License — see [LICENSE](LICENSE) for details.
 - [MCP Protocol](https://modelcontextprotocol.io/)
 - [Flux by Black Forest Labs](https://blackforestlabs.ai/)
 - [PyPI Package](https://pypi.org/project/mcp-flux-pro/)
+
+## FLUX 3 video
+
+Use `flux_generate_video` with a structured `request` for `t2v`, `i2v`, `v2v` or `draft_enhance`. For example: `{"mode":"t2v","prompt":"Waves at sunset","duration":5,"resolution":"hd","generate_audio":false}`. Image mode requires `keyframes`; video mode requires `start_video`. Draft enhancement uses an owned platform `draft_task_id` and requires the temporary draft cache still to be available.
+
+`flux_edit_video` takes `video` and `prompt`; `flux_upscale_video` takes `input_video`, optional `upscale_factor` (1.5–3) and `creativity` (0/1). Upscale billing uses actual output MP-seconds with FPS scaling. Tools return task IDs asynchronously by default; use `flux_get_task` for the final video. Set `async=false` in the request to wait synchronously.
+
+All video operations use `POST /flux/videos`: `action=generate` (default), `action=edit`, or `action=upscale`. Generation additionally uses `mode=t2v/i2v/v2v/draft_enhance`. Each operation accepts only its own fields. The CLI utility commands and MCP utility tools set their matching action automatically.
