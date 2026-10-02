@@ -4,8 +4,8 @@ from unittest.mock import AsyncMock, patch
 import pytest
 from pydantic import TypeAdapter, ValidationError
 
-from core.video_types import FluxVideoRequest, VideoEditRequest, VideoUpscaleRequest
-from tools.video_tools import flux_edit_video, flux_generate_video, flux_upscale_video
+from core.video_types import FluxVideoRequest
+from tools.video_tools import flux_generate_video
 
 
 @pytest.mark.parametrize(
@@ -51,6 +51,8 @@ async def test_video_modes_preserve_contract(body):
     "body",
     [
         {"mode": "draft_enhance", "cache_reference": "secret"},
+        {"action": "edit", "mode": "t2v", "prompt": "x", "video": "v"},
+        {"action": "upscale", "mode": "t2v", "prompt": "x", "input_video": "v"},
         {"mode": "v2v", "prompt": "x", "start_video": "x", "duration": 20},
     ],
 )
@@ -59,34 +61,11 @@ def test_unusable_requests_are_rejected(body):
         TypeAdapter(FluxVideoRequest).validate_python(body)
 
 
-@pytest.mark.parametrize(
-    "tool,payload_model,action",
-    [
-        (flux_edit_video, VideoEditRequest(video="v", prompt="edit"), "edit"),
-        (
-            flux_upscale_video,
-            VideoUpscaleRequest(input_video="v", creativity=0),
-            "upscale",
-        ),
-    ],
-)
-async def test_video_utilities_use_exact_routes(tool, payload_model, action):
-    with patch(
-        "tools.video_tools.client.request", new=AsyncMock(return_value={"task_id": "platform"})
-    ) as call:
-        await tool(payload_model)
-    assert call.await_args.args[0] == "/flux/videos"
-    assert call.await_args.args[1]["action"] == action
+async def test_public_video_tools_only_offer_generation():
+    import tools  # noqa: F401 - register the public tools
+    from core.server import mcp
 
-
-@pytest.mark.parametrize(
-    "model,body",
-    [
-        (VideoEditRequest, {"action": "upscale", "video": "v", "prompt": "edit"}),
-        (VideoEditRequest, {"video": "v", "prompt": "edit", "mode": "t2v"}),
-        (VideoUpscaleRequest, {"action": "edit", "input_video": "v"}),
-    ],
-)
-def test_video_tools_reject_mixed_actions(model, body):
-    with pytest.raises(ValidationError):
-        model.model_validate(body)
+    names = {tool.name for tool in await mcp.list_tools()}
+    assert "flux_generate_video" in names
+    assert "flux_edit_video" not in names
+    assert "flux_upscale_video" not in names

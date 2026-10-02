@@ -52,20 +52,6 @@ class DraftEnhanceRequest(VideoRequest):
     resolution: Literal["hd", "fhd", "qhd", "uhd"] = "fhd"
 
 
-class VideoEditRequest(VideoRequest):
-    action: Literal["edit"] = "edit"
-    video: str
-    prompt: str = Field(min_length=1, max_length=4096)
-
-
-class VideoUpscaleRequest(VideoRequest):
-    action: Literal["upscale"] = "upscale"
-    input_video: str
-    prompt: str = ""
-    upscale_factor: float = Field(default=2, ge=1.5, le=3)
-    creativity: Literal[0, 1] = 1
-
-
 FluxVideoRequest = Annotated[
     TextVideoRequest | ImageVideoRequest | VideoVideoRequest | DraftEnhanceRequest,
     Field(discriminator="mode"),

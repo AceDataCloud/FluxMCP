@@ -97,8 +97,6 @@ Image Editing:
 
 Video Generation and Utilities:
 - flux_generate_video: FLUX 3 text/image/video generation and temporary owned draft enhancement
-- flux_edit_video: Edit a video with a prompt
-- flux_upscale_video: Upscale a video using actual output MP-seconds and FPS for billing
   Video tools return a platform task ID asynchronously by default.
 
 Task Management:
