@@ -15,7 +15,7 @@ can call it directly from chat.
 ## Quick Start
 
 1. **Install this extension.** VS Code registers the `flux` MCP server automatically.
-2. **Get an API key** from [Ace Data Cloud](https://platform.acedata.cloud/console/applications) (Applications → API Key). New accounts include free trial credit.
+2. **Get an API key** from [Ace Data Cloud](https://platform.acedata.cloud/console/applications?utm_source=vscode_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_vscode_api_key) (Applications → API Key). New accounts include free trial credit.
 3. **Open Copilot Chat** in agent mode and ask for a image task — the extension prompts for the API key the first time and stores it in the OS keychain via VS Code's `SecretStorage`.
 
 You can rotate or remove the API key any time from the command palette:
@@ -30,8 +30,8 @@ You can rotate or remove the API key any time from the command palette:
 
 For screenshots, token setup, project-level and user-level `mcp.json`, and Copilot Agent Mode examples, see:
 
-- [Flux MCP VS Code guide](https://platform.acedata.cloud/documents/promotion_article_mcp_flux_vscode)
-- [All Ace Data Cloud MCP servers in VS Code](https://platform.acedata.cloud/documents/promotion_article_mcp_all_vscode)
+- [Flux MCP VS Code guide](https://platform.acedata.cloud/documents/promotion_article_mcp_flux_vscode?utm_source=vscode_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_vscode_documents_promotion_article_mcp_flux_vscode)
+- [All Ace Data Cloud MCP servers in VS Code](https://platform.acedata.cloud/documents/promotion_article_mcp_all_vscode?utm_source=vscode_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_vscode_documents_promotion_article_mcp_all_vscode)
 
 ### Example prompts
 
@@ -59,7 +59,7 @@ For screenshots, token setup, project-level and user-level `mcp.json`, and Copil
 
 ## Pricing
 
-From $0.025 per image. Free trial credit on sign-up. See full pricing at [https://platform.acedata.cloud/documents/flux-mcp](https://platform.acedata.cloud/documents/flux-mcp).
+From $0.025 per image. Free trial credit on sign-up. See full pricing at [https://platform.acedata.cloud/documents/flux-mcp](https://platform.acedata.cloud/documents/flux-mcp?utm_source=vscode_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_vscode_quick_start).
 
 ---
 
@@ -130,8 +130,8 @@ version, install [`uv`](https://docs.astral.sh/uv/) and use:
 - **Hosted endpoint:** https://flux.mcp.acedata.cloud/mcp
 - **PyPI package:** [`mcp-flux-pro`](https://pypi.org/project/mcp-flux-pro/)
 - **Source repository:** https://github.com/AceDataCloud/FluxMCP
-- **Ace Data Cloud platform:** https://platform.acedata.cloud
-- **MCP documentation:** https://platform.acedata.cloud/documents/flux-mcp
+- **Ace Data Cloud platform:** https://platform.acedata.cloud?utm_source=vscode_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_vscode_platform
+- **MCP documentation:** https://platform.acedata.cloud/documents/flux-mcp?utm_source=vscode_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_vscode_quick_start
 
 ## License
 
