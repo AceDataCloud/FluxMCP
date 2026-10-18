@@ -30,11 +30,11 @@ class McpSettings : PersistentStateComponent<McpSettings.State> {
 
     fun getStdioConfig(): String {
         val token = myState.apiToken.ifEmpty { "YOUR_API_TOKEN" }
-        return """{"mcpServers": {"flux": {"command": "uvx", "args": ["mcp-flux-pro"], "env": {"ACEDATACLOUD_API_TOKEN": "$$token"}}}}"""
+        return """{"mcpServers": {"flux": {"command": "uvx", "args": ["mcp-flux-pro"], "env": {"ACEDATACLOUD_API_TOKEN": "$token"}}}}"""
     }
 
     fun getHttpConfig(): String {
         val token = myState.apiToken.ifEmpty { "YOUR_API_TOKEN" }
-        return """{"mcpServers": {"flux": {"url": "https://flux.mcp.acedata.cloud/mcp", "headers": {"Authorization": "Bearer $$token"}}}}"""
+        return """{"mcpServers": {"flux": {"url": "https://flux.mcp.acedata.cloud/mcp", "headers": {"Authorization": "Bearer $token"}}}}"""
     }
 }
