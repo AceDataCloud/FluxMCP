@@ -20,6 +20,17 @@ FluxModel = Literal[
     "flux-2-klein",
 ]
 
+# Editing excludes the generation-only klein model.
+FluxEditModel = Literal[
+    "flux-dev",
+    "flux-pro",
+    "flux-kontext-pro",
+    "flux-kontext-max",
+    "flux-2-flex",
+    "flux-2-pro",
+    "flux-2-max",
+]
+
 # Flux supported aspect ratios (for ultra/kontext models)
 FluxAspectRatio = Literal[
     "1:1",
@@ -27,8 +38,6 @@ FluxAspectRatio = Literal[
     "21:9",
     "3:2",
     "2:3",
-    "4:5",
-    "5:4",
     "3:4",
     "4:3",
     "9:16",

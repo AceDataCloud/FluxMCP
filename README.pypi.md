@@ -16,7 +16,7 @@ Generate and edit stunning AI images with Flux models (flux-dev, flux-pro, flux-
 
 ## Features
 
-- **Image Generation** - Generate images from text prompts with 6 Flux models
+- **Image Generation** - Generate images from text prompts with 8 Flux image models
 - **Image Editing** - Edit existing images with context-aware Flux Kontext models
 - **Task Management** - Track async generation tasks and batch status queries
 - **Model Guide** - Built-in model selection and prompt writing guidance
@@ -32,6 +32,7 @@ Generate and edit stunning AI images with Flux models (flux-dev, flux-pro, flux-
 | `flux_edit_image` | Edit an existing image using Flux with a text prompt. |
 | `flux_list_models` | List all available Flux models and their capabilities. |
 | `flux_list_actions` | List all available Flux tools and their use cases. |
+| `flux_generate_video` | Generate FLUX 3 videos or enhance an owned draft. |
 | `flux_get_task` | Query the status and result of a Flux image generation task. |
 | `flux_get_tasks_batch` | Query multiple Flux image generation tasks at once. |
 
@@ -317,3 +318,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 Use `flux_generate_video` with a structured `request` for `t2v`, `i2v`, `v2v` or `draft_enhance`. For example: `{"mode":"t2v","prompt":"Waves at sunset","duration":5,"resolution":"hd","generate_audio":false}`. Image mode requires `keyframes`; video mode requires `start_video`. Draft enhancement uses an owned platform `draft_task_id` and requires the temporary draft cache still to be available.
 
 Video generation uses `POST /flux/videos` with `action=generate` (default) and `mode=t2v/i2v/v2v/draft_enhance`. Each generation mode accepts its own fields. Tools return task IDs asynchronously by default; use `flux_get_task` for the final video. Set `async=false` in the request to wait synchronously.
+
+### Image model constraints
+
+Use aspect ratios such as `1:1` or `16:9` for `flux-2-flex`, `flux-2-pro`, `flux-2-max`, and the Kontext models; pixel dimensions such as `1024x1024` are rejected for these models. `flux-2-klein` supports image generation only and is not an edit model.

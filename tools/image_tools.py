@@ -1,13 +1,26 @@
 """Image generation tools for Flux API."""
 
-from typing import Annotated
+from typing import Annotated, get_args
 
 from pydantic import Field
 
 from core.client import client
 from core.server import mcp
-from core.types import DEFAULT_MODEL, FluxModel
+from core.types import DEFAULT_MODEL, FluxAspectRatio, FluxEditModel, FluxModel
 from core.utils import format_image_result
+
+_RATIO_ONLY_MODELS = {
+    "flux-kontext-pro",
+    "flux-kontext-max",
+    "flux-2-flex",
+    "flux-2-pro",
+    "flux-2-max",
+}
+
+
+def _validate_size(model: str, size: str) -> None:
+    if model in _RATIO_ONLY_MODELS and size not in get_args(FluxAspectRatio):
+        raise ValueError(f"{model} requires a supported aspect ratio, such as 1:1 or 16:9")
 
 
 @mcp.tool()
@@ -24,10 +37,9 @@ async def flux_generate_image(
     size: Annotated[
         str,
         Field(
-            description="Required image size. For flux-dev: pixel dimensions like '1024x1024' "
-            "(256-1440px, multiples of 32). For flux-2-flex/pro/max: pixel dimensions "
-            "(x >= 64, multiples of 32). For kontext models: image ratios like '1:1', '16:9', "
-            "'9:16', '4:3', '3:2', '2:3', '4:5', '5:4', '3:4', '21:9', '9:21'."
+            description="Required image size. For flux-dev/pro/2-klein, use documented pixel presets "
+            "such as '1024x1024' or aspect ratios. For flux-2-flex/pro/max and kontext models, "
+            "use aspect ratios only: 21:9, 16:9, 4:3, 3:2, 1:1, 2:3, 3:4, 9:16, or 9:21."
         ),
     ],
     model: Annotated[
@@ -36,7 +48,7 @@ async def flux_generate_image(
             description="Flux model to use for generation. Options:\n"
             "- flux-dev: Fast development model, good balance of speed and quality (default)\n"
             "- flux-pro: Higher quality production model\n"
-            "- flux-2-flex: Flux 2 flexible model, pixel sizes (x >= 64, multiple of 32)\n"
+            "- flux-2-flex: Flux 2 flexible model, aspect-ratio sizes only\n"
             "- flux-2-pro: Flux 2 professional model, high quality\n"
             "- flux-2-max: Flux 2 maximum-quality model\n"
             "- flux-2-klein: Flux 2 klein model, efficient generation\n"
@@ -74,6 +86,7 @@ async def flux_generate_image(
     Returns:
         Task ID and generated image information including URLs.
     """
+    _validate_size(model, size)
     payload: dict = {
         "action": "generate",
         "prompt": prompt,
@@ -111,18 +124,18 @@ async def flux_edit_image(
     size: Annotated[
         str,
         Field(
-            description="Required output image size. For kontext models: aspect ratios like '1:1', "
-            "'16:9'. For other models: pixel dimensions like '1024x1024'."
+            description="Required output size. Kontext and flux-2-flex/pro/max require aspect "
+            "ratios such as '1:1' or '16:9'; flux-dev/pro also accept documented pixel presets."
         ),
     ],
     model: Annotated[
-        FluxModel,
+        FluxEditModel,
         Field(
             description="Flux model to use for editing. Recommended models for editing:\n"
             "- flux-kontext-pro: Best for context-aware editing and style transfer (recommended)\n"
             "- flux-kontext-max: Maximum context for complex edits\n"
             "- flux-dev: Basic editing support\n"
-            "Other models also support editing but kontext models give best results."
+            "flux-2-flex/pro/max also support editing. flux-2-klein supports generation only."
         ),
     ] = "flux-kontext-pro",
     callback_url: Annotated[
@@ -147,6 +160,7 @@ async def flux_edit_image(
     Returns:
         Task ID and edited image information including URLs.
     """
+    _validate_size(model, size)
     payload: dict = {
         "action": "edit",
         "prompt": prompt,
