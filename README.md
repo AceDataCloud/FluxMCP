@@ -35,6 +35,14 @@ Generate and edit stunning AI images with Flux models (flux-dev, flux-pro, flux-
 | `flux_get_task` | Query the status and result of a Flux image generation task. |
 | `flux_get_tasks_batch` | Query multiple Flux image generation tasks at once. |
 
+## Verify the connection before generating
+
+After installation, discover the server's tools and call `flux_list_models` with no arguments. This reference tool returns locally defined model or action information without calling a generation API. It does **not** validate your application key, account balance, service access, or current price. Your client's Chat model can still create separate charges.
+
+To check authenticated access without creating media, query a task already owned by your application using the task-lookup tool and the **same original task ID**. If you have no existing task, stop after discovery/reference output; do not generate media just to test installation. Review [current pricing](https://platform.acedata.cloud/models?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_readme_models) before any new generation.
+
+For missing tools, reconnect and refresh the tool list. For 401/403, check the existing application's key, service permissions, Allowed APIs, expiration and usage limit before replacing credentials. Keep a task/trace ID for other failures, never your key; do not automatically retry a paid operation.
+
 ## Connect: hosted OAuth, API token, or local stdio
 
 The hosted endpoint is `https://flux.mcp.acedata.cloud/mcp`. Choose one route for the MCP client:
