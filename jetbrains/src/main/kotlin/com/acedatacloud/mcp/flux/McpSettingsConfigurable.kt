@@ -25,7 +25,7 @@ class McpSettingsConfigurable : Configurable {
             group("API Configuration") {
                 // BEGIN TOKEN ONBOARDING
                 row {
-                    browserLink("Get an API key", "https://platform.acedata.cloud/console/applications?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_jetbrains_api_key")
+                    browserLink("Get an API key", "https://platform.acedata.cloud/console/applications?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen")
                 }
                 row {
                     comment("Sign in, initialize General Application if needed, then copy an API key.")
@@ -90,10 +90,10 @@ class McpSettingsConfigurable : Configurable {
 
             group("Links") {
                 row {
-                    browserLink("Ace Data Cloud Platform", "https://platform.acedata.cloud?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_jetbrains_platform")
+                    browserLink("Ace Data Cloud Platform", "https://platform.acedata.cloud?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen")
                 }
                 row {
-                    browserLink("Documentation", "https://platform.acedata.cloud/documents/flux-mcp?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_jetbrains_quick_start")
+                    browserLink("Documentation", "https://platform.acedata.cloud/documents/flux-mcp?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen")
                 }
                 row {
                     browserLink("Source Code", "https://github.com/AceDataCloud/FluxMCP")

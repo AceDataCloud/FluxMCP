@@ -73,7 +73,7 @@ mcp-flux-pro = "main:main"
 
 [project.urls]
 Homepage = "https://github.com/AceDataCloud/FluxMCP"
-Documentation = "https://platform.acedata.cloud/documents/flux-mcp?utm_source=pypi&utm_medium=referral&utm_campaign=evergreen&utm_content=flux_mcp_package_quick_start"
+Documentation = "https://platform.acedata.cloud/documents/flux-mcp?utm_source=pypi&utm_medium=referral&utm_campaign=evergreen"
 Repository = "https://github.com/AceDataCloud/FluxMCP"
 Issues = "https://github.com/AceDataCloud/FluxMCP/issues"
 Changelog = "https://github.com/AceDataCloud/FluxMCP/blob/main/CHANGELOG.md"
