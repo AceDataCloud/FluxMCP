@@ -32,5 +32,11 @@
       "type": "streamable-http",
       "url": "https://flux.mcp.acedata.cloud/mcp"
     }
+  ],
+  "icons": [
+    {
+      "src": "https://cdn.acedata.cloud/ogm2oa.png",
+      "mimeType": "image/png"
+    }
   ]
 }
